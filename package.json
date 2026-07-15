@@ -1,0 +1,20 @@
+{
+  "name": "simple-perspective-ruler",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Measure a physical height from a photo using a 4-point perspective grid and one known width.",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "esbuild src/main.ts --bundle --format=iife --target=es2020 --outfile=dist/app.js",
+    "watch": "esbuild src/main.ts --bundle --format=iife --target=es2020 --outfile=dist/app.js --watch",
+    "serve": "python3 -m http.server 8080"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "typescript": "^5.5.0"
+  }
+}

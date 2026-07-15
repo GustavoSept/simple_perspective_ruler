@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspective Ruler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="controls">
+    <div class="brand">
+      <h1>Perspective&nbsp;Ruler</h1>
+      <span id="status" class="status" data-tone="info">Loading OpenCV.js…</span>
+    </div>
+
+    <label class="file-button" for="file-input">
+      Upload Image
+      <input id="file-input" type="file" accept="image/*">
+    </label>
+
+    <div class="field">
+      <label for="width-input">Known width</label>
+      <input id="width-input" type="number" min="0" step="0.01" value="1.00" inputmode="decimal">
+      <select id="unit-select" aria-label="Unit">
+        <option value="m" selected>m</option>
+        <option value="ft">ft</option>
+      </select>
+    </div>
+
+    <div class="result" aria-live="polite">
+      <span class="result-label">Calculated height</span>
+      <output id="height-output" for="width-input">—</output>
+    </div>
+  </header>
+
+  <main id="viewport" class="viewport">
+    <canvas id="canvas"></canvas>
+  </main>
+
+  <footer class="hint">
+    Drag the four pins onto the corners of a real-world rectangle (a wall, a door, a window).
+    The <em>top edge</em> is the side whose physical width you enter; the height is measured down the plane.
+  </footer>
+
+  <!-- OpenCV.js: vendored locally so the app works fully offline;
+       falls back to the CDN if the local copy is missing. -->
+  <script async src="vendor/opencv.js"
+          onerror="var s=document.createElement('script');s.async=true;s.src='https://docs.opencv.org/4.x/opencv.js';document.head.appendChild(s);"></script>
+  <script src="dist/app.js" defer></script>
+</body>
+</html>
